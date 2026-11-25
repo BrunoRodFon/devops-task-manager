@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: devops-task-manager
+    ports:
+      - "5000:5000"
+    environment:
+      TASK_MANAGER_DB: /data/tasks.db
+    volumes:
+      - task-manager-data:/data
+    restart: unless-stopped
+
+volumes:
+  task-manager-data:
